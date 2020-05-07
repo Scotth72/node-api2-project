@@ -2,6 +2,7 @@
 	"name": "node-api2-project",
 	"version": "0.0.1",
 	"description": "Project for Node API 2 Module",
+	"private": true,
 	"main": "index.js",
 	"scripts": {
 		"server": "nodemon index.js"
@@ -9,7 +10,8 @@
 	"dependencies": {
 		"express": "^4.17.1",
 		"knex": "^0.20.11",
-		"sqlite3": "^4.1.1"
+		"minipass": "^3.1.1",
+		"sqlite3": "^4.2.0"
 	},
 	"devDependencies": {
 		"nodemon": "^2.0.2"
