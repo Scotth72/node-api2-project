@@ -108,6 +108,21 @@ router.delete('/:id', (req, res) => {
 	});
 });
 
-router.put('/:id', (req, res) => {});
+router.put('/:id', (req, res) => {
+	if (req.body) {
+		db
+			.findById(req.params.id)
+			.then(() => {
+				db.update(req.params.id, req.body).then((response) => {
+					db.findById(req.params.id).then((newItem) => res.status(200).json(newItem));
+				});
+			})
+			.catch((err) => {
+				res.status(404).json({ message: 'message: "The post with the specified ID does not exist."' });
+			});
+	} else {
+		res.status(400).json({ errorMessage: 'Please provide title and contents for the post.' });
+	}
+});
 
 module.exports = router;
